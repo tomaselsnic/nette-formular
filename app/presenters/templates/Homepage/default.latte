@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>Seznam zákazníků</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container" align="center">
+<h2 align="center">Seznam zákazníků</h2>
+<p><a n:href='Form:show'>Přidat záznam</a></p>
+<br>
+<div class="table-responsive" >
+<table class="table table-bordered table-striped" >
+<thead>
+
+<td>ID</td>
+<td>Datum a čas</td>
+<td>#Helpdesk</td>
+<td>Jméno a kontaktní údaje zákazníka</td>
+<td>Jméno/Medoro</td>
+<td>Kategorie zpracování</td>
+<td>Popis servisního zásahu</td>
+<td>obecný popis technických a organizačně bezpečnostních opatření</td>
+<td>Předaní třetí země/mezinárodní organizace</td>
+<td>poznámka</td>
+<td>zakaznici</td>
+
+
+
+</thead>
+<tr n:foreach="$data as $datas">
+<td>{$datas->id}</td>
+<td>{$datas->datum_cas}</td>
+<td>{$datas->helpdesk}</td>
+<td>{$datas->jmeno_kontakt}</td>
+<td>{$datas->jmenoMed}</td>
+<td>{$datas->kategorie}</td>
+<td>{$datas->servisni_zasah}</td>
+<td>{$datas->obecny_popis}</td>     
+<td>{$datas->predani_treti_zemi ? 'ANO' : 'NE'}</td>
+<td>{$datas->poznamky}</td>
+<td>{$datas->zakaznici->zakaznik}</td>
+</tr>
+
+
+</table>
+</div>
+{control customer}
+</div>
+
+</body>
+<script type="text/javascript" class="init">
+	
+
+$(document).ready(function() {
+	$('#example').DataTable();
+} );
+
+
+	</script>
+</html>
